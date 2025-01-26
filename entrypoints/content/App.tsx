@@ -11,6 +11,7 @@ import {useTranslation} from "react-i18next";
 import {useTheme} from "@/components/theme-provider.tsx";
 import { setupEventHandlers } from '@/lib/eventHandlers';
 import { setupMessageHandler } from '@/lib/messageHandler';
+import SwiggeyPrice from '../sidepanel/SwiggeyPrice';
 
 export default () => {
     const [showContent, setShowContent] = useState(false);
@@ -38,6 +39,7 @@ export default () => {
     useEffect(() => {
         setupEventHandlers(setShowContent);
         setupMessageHandler(setShowContent, i18n, toggleTheme);
+        setShowContent(true)
     }, []);
     
 
@@ -54,8 +56,9 @@ export default () => {
                     setHeadTitle(sidebarType)
                 }}/>
                 <main className="mr-14 grid gap-4 p-4">
-                    {sidebarType === SidebarType.home && <Home/>}
-                    {sidebarType === SidebarType.settings && <SettingsPage/>}
+                    {/* {sidebarType === SidebarType.home && <Home/>}
+                    {sidebarType === SidebarType.settings && <SettingsPage/>} */}
+                    <SwiggeyPrice/>
                 </main>
             </div>
             }
